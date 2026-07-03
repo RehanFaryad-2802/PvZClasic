@@ -1,0 +1,124 @@
+/* ══════════════════════════════════════════════════
+   css/back_confirm.css — PvZClassic
+   "Exit Game?" confirm shown on hardware/gesture back
+   press at the root menu. Same wooden garden theme as
+   the rest of the UI. Mobile-first, 752×351 landscape.
+══════════════════════════════════════════════════ */
+
+.bx-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.18s ease;
+}
+.bx-overlay.bx-visible { opacity: 1; }
+
+.bx-card {
+  position: relative;
+  width: 200px;
+  max-width: 78vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 14px 12px 12px;
+  background:
+    repeating-linear-gradient(
+      180deg,
+      transparent 0px, transparent 3px,
+      rgba(0,0,0,0.03) 3px, rgba(0,0,0,0.03) 4px
+    ),
+    linear-gradient(160deg, #c8914a 0%, #a06828 40%, #8a5218 75%, #7a4410 100%);
+  border-radius: 8px 8px 6px 6px;
+  border-top:    2px solid #daa050;
+  border-left:   2px solid #c8914a;
+  border-right:  2px solid #6a3c10;
+  border-bottom: 4px solid #4a2808;
+  box-shadow:
+    0 6px 0 #3a1e08,
+    0 10px 22px rgba(0,0,0,0.55),
+    inset 0 1px 0 rgba(255,220,100,0.2);
+  transform: translateY(8px) scale(0.96);
+  transition: transform 0.18s ease;
+}
+.bx-overlay.bx-visible .bx-card {
+  transform: translateY(0) scale(1);
+}
+
+.bx-pin {
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #e8d090, #b8922a 60%, #6a4800);
+  border: 1px solid #4a3000;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,235,150,0.5);
+}
+
+.bx-title {
+  font-family: var(--font-display, sans-serif);
+  font-size: 13px;
+  font-weight: 700;
+  color: #fef3c7;
+  text-align: center;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.7);
+  line-height: 1.25;
+  margin-top: 2px;
+}
+
+.bx-msg {
+  font-family: var(--font-display, sans-serif);
+  font-size: 9.5px;
+  color: #f3dfb0;
+  text-align: center;
+  line-height: 1.4;
+  margin-top: 4px;
+  opacity: 0.9;
+}
+
+.bx-actions {
+  display: flex;
+  gap: 8px;
+  width: 100%;
+  margin-top: 12px;
+}
+
+.bx-btn {
+  flex: 1;
+  padding: 7px 4px;
+  border-radius: 7px;
+  font-family: var(--font-display, sans-serif);
+  font-weight: 700;
+  font-size: 10.5px;
+  cursor: pointer;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  transition: filter 0.15s, transform 0.1s;
+}
+.bx-btn:active { transform: translateY(1px); }
+
+.bx-btn-stay {
+  background: linear-gradient(180deg, #daa050 0%, #b07838 50%, #8c5820 100%);
+  border: 1px solid #f3d38a;
+  border-bottom: 2px solid #4a2808;
+  color: #3a1e08;
+  box-shadow: 0 2px 0 #4a2808, inset 0 1px 0 rgba(255,240,200,0.5);
+}
+.bx-btn-stay:hover { filter: brightness(1.08); }
+
+.bx-btn-exit {
+  background: linear-gradient(180deg, #7a2418 0%, #5a1a10 100%);
+  border: 1px solid #a8402c;
+  border-bottom: 2px solid #2e0c06;
+  color: #fde68a;
+  box-shadow: 0 2px 0 #2e0c06, inset 0 1px 0 rgba(255,180,150,0.15);
+}
+.bx-btn-exit:hover { filter: brightness(1.12); }

@@ -1922,6 +1922,7 @@ document.getElementById('btn-settings')
   function init() {
     initButtons();
     // Minigames removed; no init required
+    if (typeof BackButtonHandler !== "undefined") BackButtonHandler.init();
 
     // Check if player already has a name → skip name screen
     if (Player.hasName()) {
